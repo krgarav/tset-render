@@ -22,23 +22,23 @@ cron.schedule('*/30 * * * * *', () => {
     // You can call an endpoint or perform a task here
     // Example: Call the /cronServer endpoint programmatically
     const axios = require('axios');
-    axios.get('http://localhost:4000/cronServer')
+    axios.get('https://test2-render.onrender.com/cronServer')
         .then(response => console.log(response.data))
         .catch(error => console.error('Error calling /cronServer:', error.message));
 });
 
-initializeSequelize().then((sequelize) => {
-    // Test the connection
-    sequelize.sync().then(() => {
-        console.log('Connection has been established successfully.');
-        app.listen(PORT, () => {
-            console.log("Server is running on port ", PORT);
-        })
-    }).catch(err => {
-        console.error('Unable to connect to the database:', err);
-    });
-}).catch((error) => {
-    console.error('Failed to initialize Sequelize:', error);
-});
+// initializeSequelize().then((sequelize) => {
+//     // Test the connection
+//     sequelize.sync().then(() => {
+//         console.log('Connection has been established successfully.');
+app.listen(PORT, () => {
+    console.log("Server is running on port ", PORT);
+})
+//     }).catch(err => {
+//         console.error('Unable to connect to the database:', err);
+//     });
+// }).catch((error) => {
+//     console.error('Failed to initialize Sequelize:', error);
+// });
 
 
